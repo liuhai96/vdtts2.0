@@ -1,0 +1,13 @@
+所有用@Controller修饰的类全部存入这个目录
+所有返回界面的Controller类全部存入这个目录
+
+
+
+用@RestController修饰的Controller层放在api目录中
+用@RestController修饰的Controller层放在api目录中
+用@RestController修饰的Controller层放在api目录中
+
+
+通过Ajax访问的Controller层放在api目录中
+通过Ajax访问的Controller层放在api目录中
+通过Ajax访问的Controller层放在api目录中

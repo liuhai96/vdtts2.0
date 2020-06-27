@@ -1,0 +1,292 @@
+body {
+  background: #fff
+}
+
+.con {
+  width: 100%;
+  border-top: 1px solid #f2f2f2
+}
+
+.main {
+  width: 1200px;
+  margin: 0 auto
+}
+
+.navCon {
+  color: #4a4a4a;
+  font-size: 14px;
+  padding-top: 30px
+}
+
+.navCon a {
+  color: #4a4a4a;
+  text-decoration: none
+}
+
+.ksCon {
+  clear: both;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 11px;
+  color: #333
+}
+
+.ksCon .ksLeft {
+  float: left;
+  width: 240px;
+  font-size: 16px
+}
+
+.ksCon .ksRight {
+  float: right;
+  width: 940px;
+  background: #fff;
+  border: 1px solid #f2f2f2
+}
+
+.ksLeft .menuTil {
+  width: 240px;
+  height: 50px;
+  background: #24c27d;
+  color: #fff;
+  text-align: center;
+  line-height: 50px
+}
+
+.ksLeft .menuCon {
+  background: #fff
+}
+
+.ksLeft .menuCon div {
+  width: 240px;
+  height: 68px;
+  line-height: 68px;
+  border: 1px solid #f2f2f2;
+  border-top: 0;
+  box-sizing: border-box;
+  cursor: pointer
+}
+
+.ksLeft .menuCon .menu-active {
+  background: #f2f2f2;
+  color: #24c27d
+}
+
+.ksLeft .menuCon div span {
+  display: inline-block;
+  vertical-align: middle
+}
+
+.menuIcon {
+  width: 46px;
+  height: 46px;
+  background: url(//j2.58cdn.com.cn/dist/jxedt/h5/m_new/img/carType.png) no-repeat;
+  margin: 0 30px
+}
+
+.menu-xc .menuIcon {
+  background-position: 0 -46px
+}
+
+.menu-hc .menuIcon {
+  background-position: 0 -184px
+}
+
+.menu-kc .menuIcon {
+  background-position: 0 -138px
+}
+
+.menu-zgz .menuIcon {
+  background-position: 0 -92px
+}
+
+.ksRight .tabCon {
+  height: 50px
+}
+
+.tabCon .tab {
+  float: left;
+  width: 50%;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  border-bottom: 1px solid #f2f2f2
+}
+
+.tabCon .tab-active {
+  background: #f2f2f2;
+  color: #24c27d
+}
+
+.ksRight .zgztab {
+  height: 50px;
+  display: none
+}
+
+.zgztab .tab {
+  float: left;
+  width: 16.57%;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  border-bottom: 1px solid #f2f2f2;
+  border-left: 1px solid #f2f2f2
+}
+
+.zgztab .tab:first-child {
+  border-left: 0
+}
+
+.zgztab .tab-active {
+  background: #f2f2f2;
+  color: #24c27d
+}
+
+.classCon {
+  height: 40px;
+  background: #f2f2f2
+}
+
+.classCon .class {
+  float: left;
+  padding-left: 33px
+}
+
+.classCon>div {
+  height: 40px;
+  line-height: 40px
+}
+
+.classCon>div span {
+  color: #666;
+  font-size: 14px;
+  margin-left: 15px
+}
+
+.classCon .class_exam {
+  float: right;
+  width: 295px;
+  border-left: 1px solid #ddd;
+  text-align: center
+}
+
+.topicCon {
+  height: 300px
+}
+
+.topicCon a {
+  text-decoration: none;
+  color: #333
+}
+
+.topic_lx {
+  width: 704px;
+  float: left
+}
+
+.topic_lx .height149,
+.topic_lx>div {
+  height: 169px
+}
+
+.borderB {
+  border-bottom: 1px solid #f2f2f2
+}
+
+.borderL {
+  border-left: 1px solid #f2f2f2
+}
+
+.borderR {
+  border-right: 1px solid #f2f2f2
+}
+
+.topic_lx>div a {
+  float: left;
+  width: 234px;
+  text-align: center;
+  height: 100%
+}
+
+.topicCon a p {
+  margin: 0;
+  font-size: 18px;
+  color: #333
+}
+
+.topicCon a .topicDes {
+  margin-top: 5px;
+  color: #666;
+  font-size: 14px
+}
+
+.topicIcon {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: url(//j2.58cdn.com.cn/dist/jxedt/h5/m_new/img/carType.png) no-repeat;
+  background-position: 0 -285px;
+  margin: 20px auto 10px
+}
+
+.topic_sxlx {
+  background-position: 0 -562px
+}
+
+.topic_sjlx {
+  background-position: 0 -395px
+}
+
+.topic_zjlx {
+  background-position: 0 -340px
+}
+
+.topic_yct {
+  background-position: 0 -507px
+}
+
+.topic_zyt {
+  background-position: 0 -230px
+}
+
+.topic_mnks {
+  background-position: 0 -451px
+}
+
+.topic_ks {
+  width: 235px;
+  height: 338px;
+  float: right
+}
+
+.topic_ks a {
+  float: left;
+  text-align: center;
+  width: 100%;
+  height: 100%
+}
+
+.topic_ks a span {
+  margin-top: 110px
+}
+
+.ksDesCon {
+  background: #fff;
+  padding: 20px 0;
+  font-size: 14px;
+  line-height: 28px;
+  color: #999;
+  margin-top: 20px
+}
+
+.ksDesCon p {
+  margin: 0 20px
+}
+
+.ksDesCon .desTil {
+  color: #4a4a4a;
+  line-height: 22px;
+  margin-bottom: 10px
+}

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsjbc.vdtts.dao.mapper.StudentMapper">
+<!--    查询所属驾校中的学员-->
+<!--    <select id="selectAdminInfo" resultType="com.sharefile.db.TbAdmin" parameterType="com.lsjbc.vdtts.entity.Teacher">-->
+<!--        select admin_name as adminName,admin_pwd as adminPwd from tb_admin where admin_name =#{adminName}-->
+<!--         and admin_pwd =#{adminPwd}-->
+<!--    </select>-->
+    <!--  周永哲，学员信息初始化-->
+    <select id="selectAllInfo" resultType="com.lsjbc.vdtts.entity.Student"  parameterType="com.lsjbc.vdtts.entity.Student">
+        select a.*,b.s_name school_name,c.t_name teacher_name from tb_student a
+        left join tb_school b on a.s_school_id = b.s_id
+        left join tb_teacher c on a.s_teacher_id = c.t_id
+        <where>
+            <if test="student.sName!=null and student.sName!=''">
+                and a.s_name like CONCAT('%', #{student.sName} ,'%')
+            </if>
+        </where>
+        limit #{page},#{limit}
+    </select>
+
+    <!--  周永哲，统计学员信息条数-->
+    <select id="selectStudentCount" resultType="int" parameterType="com.lsjbc.vdtts.entity.Student">
+        select count(*) from tb_student
+        <where>
+            <if test="student.sName!=null and student.sName!=''">
+                and s_name like CONCAT('%', #{student.sName} ,'%')
+            </if>
+        </where>
+    </select>
+
+    <!--  周永哲，学员重置密码-->
+    <update id="resetPwd" parameterType="com.lsjbc.vdtts.entity.Account">
+        update tb_account set a_password = '1234' where a_id = #{aAccount}
+    </update>
+
+    <insert id="insertstudent"  parameterType="com.lsjbc.vdtts.entity.Student">
+         insert into tb_student(s_name,s_pwd,s_id) values (#{sName},#{sPwd},#{sId})
+   </insert>
+
+    <insert id="updatestudent"  parameterType="com.lsjbc.vdtts.entity.Student">
+         update tb_student set s_name=#{sName},s_pwd=#{sPwd},role_id=#{roleId} where s_id =#{sId}
+   </insert>
+
+    <delete id="deletestudent"  parameterType="com.lsjbc.vdtts.entity.Student">
+        delete from tb_student where s_id =#{sId}
+    </delete>
+
+    <select id="studentExamCount1" resultType="java.lang.Integer">
+     select count(ter.er_student_id) state1 from tb_exam_result ter where er_state1 ='2'
+    </select>
+    <select id="studentExamCount2" resultType="java.lang.Integer">
+     select count(ter.er_student_id) state2 from tb_exam_result ter where er_state2 ='2'
+    </select>
+    <select id="studentExamCount3" resultType="java.lang.Integer">
+     select count(ter.er_student_id) state3 from tb_exam_result ter where er_state3 ='2'
+    </select>
+    <select id="studentExamCount4" resultType="java.lang.Integer">
+     select count(ter.er_student_id) state4 from tb_exam_result ter where er_state4 ='2'
+    </select>
+
+
+<!--  陈竑霖-->
+<!--表单-->
+    <select id="selectList" resultType="com.lsjbc.vdtts.entity.Student">
+         select stu.s_id,stu.s_phone,sch.s_name schoolName,stu.s_sfz,stu.s_name,stu.s_sex,stu.s_birthday,stu.s_reg_time,stu.s_license_time,tea.t_name teacherName
+         from tb_student stu,tb_school sch,tb_teacher tea where stu.s_school_id=sch.s_id and stu.s_teacher_id =tea.t_id
+            <if test="e.sName!=null and e.sName!=''"> and stu.s_name like concat('%',#{e.sName},'%')</if>
+            <if test="e.sSex!=null and e.sSex!=''"> and stu.s_sex = #{e.sSex}</if>
+            <if test="e.sTeacherId!=null and e.sTeacherId!=''"> and stu.s_teacher_id = #{e.sTeacherId}</if>/*李浪新增，用于教练查找学生*/
+            <if test="e.sLicenseTime!=null and e.sLicenseTime!=''"> and stu.s_license_time like concat('%',#{e.sLicenseTime},'%')</if>
+        limit #{start},#{pageSize}
+    </select>
+<!--分页-->
+    <select id="selectListCount" resultType="int" parameterType="com.lsjbc.vdtts.entity.Student">
+        select count(s_id) from tb_student
+        <!--where自动帮我们取消掉多余的and或or-->
+        <where> 1 = 1
+            <if test="e.sName!=null and e.sName!=''"> and s_name like concat('%',#{e.sName},'%')</if>
+            <if test="e.sSex!=null and e.sSex!=''"> and s_sex = #{e.sSex}</if>
+            <if test="e.sTeacherId!=null and e.sTeacherId!=''"> and s_teacher_id = #{e.sTeacherId}</if>/* 李浪新增，用于教练查找学生*/
+            <if test="e.sLicenseTime!=null and e.sLicenseTime!=''"> and s_license_time like concat('%',#{e.sLicenseTime},'%')</if>
+        </where>
+    </select>
+<!--    <select id="insSfz" parameterType="com.lsjbc.vdtts.entity.Student" resultType="com.lsjbc.vdtts.entity.Student">-->
+<!--        select * from tb_student where s_sfz = #{sSfz} and s_name = #{sName}-->
+<!--    </select>&lt;!&ndash; 查身份证 &ndash;&gt;-->
+
+<!--    <select id="findsfz" resultType="com.lsjbc.vdtts.entity.Student">-->
+<!--        select * from tb_student where s_sfz = #{sSfz}-->
+<!--    </select>-->
+    <select id="findstudentPwd" parameterType="int" resultType="java.lang.String">
+        select a_password from tb_account where a_id=#{aId}
+    </select>
+
+    <update id="updatestudentPwd">
+        update tb_account set a_password = #{aPassword} where a_id=#{aId}
+    </update>
+    <update id="inschool" parameterType="com.lsjbc.vdtts.entity.Student" >
+        update tb_student set s_school_id = #{sSchoolId} where s_sfz = #{e.sSfz}
+    </update>
+
+    <update id="updateStudentTecaherId" parameterType="com.lsjbc.vdtts.entity.Teacher">
+     update tb_student set s_teacher_id = #{sTeacherId},s_school_id = #{sSchoolId} where s_id = #{e.sId}
+    </update>
+
+    <insert id="addStudentMessage" parameterType="com.lsjbc.vdtts.entity.Student" keyProperty="sId" useGeneratedKeys="true">
+        insert into tb_student (s_account_id, s_school_id, s_sfz, s_name, s_phone, s_sex, s_birthday, s_pic, s_reg_time, s_license_time, s_teacher_id)
+        values (#{sAccountId},#{sSchoolId},#{sSfz},#{sName},#{sPhone},#{sSex},#{sBirthday},#{sPic},#{sRegTime},#{sLicenseTime},#{sTeacherId})
+    </insert><!--  李浪  -->
+
+    <!--用于登录sql 李浪-->
+    <select id="findAccount" resultType="com.lsjbc.vdtts.entity.School">
+        select * from tb_student where s_account_id = #{aAccount}
+    </select>
+
+
+
+<!--    刘海  修改教练Id-->
+    <update id="updateTeacherId" parameterType="int">
+        update tb_student set s_teacher_id = null where s_school_id = #{sSchoolId} and s_teacher_id = #{sTeacherId}
+    </update>
+
+    <select id="findStudenList" parameterType="int" resultType="com.lsjbc.vdtts.entity.Student">
+      select stu.*,ter.t_name teacherName from tb_student stu left join tb_teacher ter on stu.s_teacher_id = ter.t_id
+     <where>
+         <if test="sName!=null and sName!=''">
+             and stu.s_name like CONCAT('%', #{sName} ,'%')
+         </if>
+            and  stu.s_school_id = #{sSchoolId} limit ${start},#{pageSize}
+    </where>
+    </select>
+
+    <select id="findStudentCount" resultType="int" parameterType="com.lsjbc.vdtts.entity.Student">
+        select count(*) from tb_student
+        <where>
+            <if test="sName!=null and sName!=''">
+                and s_name like CONCAT('%', #{sName} ,'%')
+            </if>
+            and  s_school_id = #{sSchoolId}
+        </where>
+    </select>
+
+
+    <update id="updateApplyState" parameterType="int">
+        update tb_student set s_apply_state = 1 where s_id = #{sId}
+    </update>
+
+    <update id="updateStudentTeacherId" parameterType="int">
+        update tb_student set s_teacher_id = #{sTeacherId} where s_id = #{sId}
+    </update>
+
+    <select id="findTeacher" parameterType="int" resultType="com.lsjbc.vdtts.entity.Student">
+        select * from tb_student where s_id = #{sId}
+    </select>
+
+</mapper>

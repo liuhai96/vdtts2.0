@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsjbc.vdtts.dao.mapper.EvaluateMapper">
+    <select id="selectEvaluate" resultType="com.lsjbc.vdtts.entity.Evaluate">
+        select * from tb_evaluate
+        <where> 1=1
+            <if test="e.eId != null and e.eId != ''"> and e_id = #{e.eId}</if>
+            <if test="e.eStudentId != null and e.eStudentId != ''"> and e_student_id = #{e.eStudentId}</if>
+            <if test="e.eToId != null and e.eToId != ''"> and e_to_id = #{e.eToId}</if>
+            <if test="e.eScore != null and e.eScore != ''"> and e_score = #{e.eScore}</if>
+            <if test="e.eContent != null and e.eContent != ''"> and e_id like concat('%',#{e.eContent},'%')</if>
+            <if test="e.eType != null and e.eType != ''"> and e_type = #{e.eType}</if>
+            <if test="e.eTime != null and e.eTime != ''"> and e_time = #{e.eTime}</if>
+        </where>
+        order by e_time DESC
+    </select><!--查看评价表 有排序 李浪-->
+
+    <select id="findSchoolEvaluate" parameterType="int" resultType="com.lsjbc.vdtts.entity.Evaluate">
+
+    </select>
+
+    <!--添加驾校评价 周永哲-->
+    <insert id="schoolEvaluate" parameterType="com.lsjbc.vdtts.entity.Evaluate">
+        insert into tb_evaluate(e_student_id,e_to_id,e_score,e_content,e_type)
+        values(#{eStudentId},#{eToId},#{eScore},#{eContent},'school')
+    </insert>
+    <!--添加教练评价 周永哲-->
+    <insert id="teacherEvaluate" parameterType="com.lsjbc.vdtts.entity.Evaluate">
+        insert into tb_evaluate(e_student_id,e_to_id,e_score,e_content,e_type)
+        values(#{eStudentId},#{eToId},#{eScore},#{eContent},'teacher')
+    </insert>
+</mapper>

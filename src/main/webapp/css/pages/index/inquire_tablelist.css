@@ -1,0 +1,33 @@
+.clearfix {
+	
+}
+.clearfix::after {
+	height: 0px; clear: both; font-size: 0px; display: block; visibility: hidden; content: "";
+}
+.table-list {
+	margin-top: 15px;
+}
+.blist {
+	background: rgb(226, 234, 242); height: 40px; border-bottom-color: rgb(39, 68, 114); border-bottom-width: 3px; border-bottom-style: solid;
+}
+.blist li:first-child {
+	border-left-color: currentColor; border-left-width: medium; border-left-style: none;
+}
+.blist li {
+	list-style: none; width: 125px; height: 40px; text-align: center; line-height: 40px; font-family: "Î¢ÈíÑÅºÚ"; font-size: 14px; float: left; cursor: pointer; -webkit-user-select: none;
+}
+.blsit-list {
+	padding-top: 10px;
+}
+.blsit-list li {
+	background: rgb(255, 255, 255); list-style: none; width: 100%; overflow: hidden; border-top-color: currentColor; border-top-width: medium; border-top-style: none;
+}
+.table-list .blist li.active {
+	background: rgb(39, 68, 114); top: 0px; height: 40px; color: rgb(255, 255, 255); font-weight: bold; position: relative;
+}
+.blsit-list li:first-child {
+	display: block;
+}
+.blsit-list li {
+	display: none;
+}

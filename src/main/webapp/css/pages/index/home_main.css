@@ -1,0 +1,443 @@
+.main {
+	overflow: hidden;
+	width: 1100px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.main .layui-carousel {
+	float: left;
+	margin-top: 10px;
+}
+
+.main .layui-carousel .carousel-title {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	color: #fff;
+	z-index: 1;
+}
+.layui-carousel-ind ul{
+	background-color: rgba(0, 0, 0, .35);
+}
+.layui-carousel-arrow:hover, .layui-carousel-ind ul:hover{
+	background-color: rgba(0, 0, 0, .5);
+}
+.main .layui-tab-brief>.layui-tab-title .layui-this {
+	color: #333;
+}
+
+.main .layui-tab {
+	float: left;
+	width: 707px;
+	margin-left: 10px;
+}
+
+.main .layui-tab-brief>.layui-tab-title .layui-this {
+	border-left: 2px solid #e2e2e2;
+}
+
+.main .layui-tab-brief>.layui-tab-title li {
+	width: 110px;
+}
+
+.main .layui-tab-content {
+	height: 100px;
+}
+
+.main .main-tab .layui-table {
+	margin-top: 0px;
+	background-color: #f3f4f9;
+	width: 707px;
+	border-style: none;
+	text-align: center;
+}
+
+.main-tab .layui-tab-title li:last-child {
+	border-right: 2px solid #e2e2e2;
+}
+
+.main-tab .layui-table thead tr {
+	background: #f3f4f9;
+}
+
+.main-tab .title-png tr td:first-child li {
+	width: 360px;
+	list-style: disc;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	overflow: hidden;
+	cursor: pointer;
+	text-align: left;
+	color: #8ea8d8;
+}
+
+.main-tab .title-png tr td:last-child {
+	padding: 4px 15px;
+}
+
+.main-tab .title-png tr td:last-child a {
+	float: right;
+	background: #e2eaf2;
+	font-size: 13px;
+	padding: 2px 15px;
+	color: #8ea8d8;
+}
+
+.home-banner {
+	margin: 10px 0;
+}
+
+.main-industry {
+	float: left;
+	width: 850px;
+	height: 318px;
+	background-color: #F2F4F9;
+}
+
+.main-industry blockquote {
+	color: #fff;
+	margin-bottom: 3px;
+	background: #274472;
+}
+
+.main-industry blockquote img {
+	float: left;
+	margin-left: 5px;
+	margin-right: 15px;
+	width: 22px;
+}
+
+.main-industry blockquote span {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.turnover-time {
+	float: right;
+	margin-right: 10px;
+}
+
+.table-industry {
+	margin-top: 3px;
+	margin-bottom: 0px;
+}
+
+.table-industry thead tr {
+	background: #e2eaf2;
+}
+
+.table-industry-page {
+	width: 98%;
+	background: #f2f4f9;
+	height: 50px;
+	padding-right: 17px;
+}
+
+.main-convenience {
+	width: 240px;
+	float: right;
+	background: #eee;
+}
+
+.main-convenience .title-convenience {
+	margin: 15px 0 0px 15px;
+	overflow: hidden;
+}
+
+.main-convenience .title-convenience img {
+	margin-right: 10px;
+	float: left;
+}
+
+.main-convenience .title-convenience span {
+	color: #414b5c;
+	font-size: 16px;
+	float: left;
+}
+
+.title-shortcut {
+	padding: 2px 15px;
+}
+
+.title-shortcut li:first-child {
+	margin-top: 10px;
+}
+
+.title-shortcut li:first-child img {
+	margin-right: 20px;
+}
+
+.title-shortcut li:nth-child(2) img {
+	margin-left: 10px;
+	margin-right: 25px;
+}
+
+.title-shortcut li {
+	background: #e2eaf2;
+	margin-bottom: 5px;
+	padding: 5px;
+	margin-top: 5px;
+	overflow: hidden;
+}
+
+.title-shortcut li img {
+	margin: 2px 15px 2px 5px;
+	float: left;
+}
+
+.title-shortcut li a {
+	font-size: 18px;
+	color: #657a9a;
+	float: left;
+	margin-top: 16px;
+	display: block;
+}
+
+.title-shortcut li:last-child {
+	margin-bottom: 10px;
+}
+
+.title-shortcut li:last-child img {
+	margin-left: 10px;
+	margin-right: 20px;
+}
+
+.main-data-chart {
+	background: #f2f4f9;
+	width: 1100px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+
+.main-data-chart .main-chart {
+	width: 500px;
+	height: 480px;
+	float: left;
+}
+
+.main-data-chart .main-data {
+	float: right;
+	width: 600px;
+	background: #fff;
+	box-sizing: border-box;
+	border: 1px solid #e2e2e2;
+}
+
+.main-data-chart .table-data {
+	border-style: none;
+	margin: 0px;
+}
+
+.main-data-chart .table-data thead tr {
+	background: #e2eaf2;
+}
+
+.main-data-chart .table-data thead tr th:first-child {
+	text-align: left;
+}
+.main-data-chart .table-data thead tr th:nth-child(2) span{
+	border: 1px solid #40bfd5;
+	color: #40bfd5;
+}
+
+.main-data-chart .table-data thead tr th span {
+	border: 1px solid #c2c2c2;
+	padding: 3px 10px;
+	cursor: pointer;
+}
+
+.main-data-chart .table-data thead tr th span img {
+	margin-left: 5px;
+}
+
+.main-data-chart .table-data tbody {
+	text-align: center;
+}
+
+.main-data-chart .table-data tbody tr td:first-child {
+	text-align: left;
+}
+
+.main-data-chart .table-data tbody tr td:first-child span {
+	background: url(../../../../../../../../../image/pages/index/circle.png) no-repeat;
+	padding: 0px 15px 1px 6px;
+}
+
+.main-data-chart .table-data tbody tr:nth-child(10) td:first-child span {
+	background: url(../../../../../../../../../image/pages/index/circle.png) no-repeat;
+	padding: 0px 15px 1px 2px;
+}
+
+.main-data-chart .table-data tbody tr:first-child,
+.main-data-chart .table-data tbody tr:nth-child(2),
+.main-data-chart .table-data tbody tr:nth-child(3) {
+	color: #0b90f3;
+}
+
+.main-data-chart .table-data tbody tr:first-child td span {
+	color: #fff;
+	background: url(../img/circle1.png) no-repeat;
+	padding: 0px 15px 1px 6px;
+}
+
+.main-data-chart .table-data tbody tr:nth-child(2) td span,
+.main-data-chart .table-data tbody tr:nth-child(3) td span {
+	color: #fff;
+	background: url(../img/circle2.png) no-repeat;
+	padding: 0px 15px 1px 6px;
+}
+.table-inf-list .layui-table[lay-skin=line] td, .table-inf-list .layui-table[lay-skin=line] th{
+	border-width: 0 0 0px;
+}
+.table-inf-list .layui-table[lay-skin=line] tbody tr:last-child{
+	border-top: 1px solid #e2e2e2;
+}
+.main-data-page {
+	margin-right: 20px;
+}
+
+.chart-logo-img {
+	position: absolute;
+	z-index: 1;
+	width: 22px;
+	left: 10px;
+}
+
+.table-inf-list blockquote {
+	color: #fff;
+	margin-bottom: 3px;
+	background: #274472;
+}
+
+.table-inf-list blockquote img {
+	float: left;
+	margin-left: 5px;
+	margin-right: 15px;
+	width: 22px;
+}
+
+.table-inf-list blockquote span {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.table-inf-list .inf-list {
+	float: left;
+	width: 350px;
+	height: 404px;
+}
+
+.table-inf-list .list-style {
+	margin-right: 25px;
+}
+
+.table-inf-list .inf-list blockquote {
+	color: #fff;
+	margin-bottom: 0;
+}
+
+.table-inf-list .inf-list .bg-red-img {
+	background: url(../../../../../../../../image/pages/index/title_bg1.jpg) no-repeat 70% 0%;
+}
+
+.table-inf-list .inf-list .bg-dark-blue-img {
+	background: url(../../../../../../../../image/pages/index/title_bg2.jpg) no-repeat 70% 0%;
+}
+
+.table-inf-list .inf-list .bg-blue-img {
+	background: url(../../../../../../../../image/pages/index/title_bg3.jpg) no-repeat 70% 0%;
+}
+
+.table-inf-list .inf-list .bg-red-img span{
+	color: #cd322c;
+}
+
+.table-inf-list .inf-list .bg-dark-blue-img span{
+	color: #324e79;
+}
+
+.table-inf-list .inf-list .bg-blue-img span{
+	color: #40bff5;
+}
+
+.table-inf-list .inf-list blockquote img {
+	width: 12px;
+	margin: 0 6px;
+	float: none;
+}
+
+.table-inf-list .inf-list blockquote span {
+	float: right;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.table-inf-list .inf-list blockquote span img {
+	margin-right: 10px;
+	float: none;
+}
+
+.table-inf-list .inf-list .layui-table {
+	margin: 0;
+}
+
+.table-inf-list .inf-list .layui-table thead tr {
+	border: 1px solid #ede1e2;
+}
+
+.table-inf-list .inf-list .layui-table tbody tr td span {
+	background: url(../../../../../../../../../image/pages/index/circle.png) no-repeat;
+	padding: 1px 10px 5px 6px;
+}
+
+.table-inf-list .inf-list .layui-table tbody tr:first-child,
+.table-inf-list .inf-list .layui-table tbody tr:nth-child(2),
+.table-inf-list .inf-list .layui-table tbody tr:nth-child(3) {
+	color: #0b90f3;
+}
+
+.table-inf-list .inf-list .layui-table tbody tr:nth-child(10) td span {
+	background: url(../../../../../../../../../image/pages/index/circle.png) no-repeat;
+	padding: 1px 5px 5px 3px;
+}
+
+.table-inf-list .inf-list .layui-table tbody tr:last-child td a {
+	float: right;
+	margin-top: -4px;
+}
+.table-inf-list .inf-list .layui-table tbody tr:last-child td a:hover {
+	color: #0195FF;
+}
+.title-center tr td {
+	text-align: center;
+}
+.title-district{
+	background: #fafbfd;
+}
+.title-district tr td:first-child{
+	color: #63b2f5;
+}
+.layui-table th {
+	padding-top: 15px;
+	text-align: center;
+}
+
+.layui-tab-brief>.layui-tab-title .layui-this {
+	background: url(../../../../../../image/pages/index/show_bg.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+
+.layui-laypage {
+	float: right;
+	margin-bottom: 0px;
+}
+
+.layui-laypage a:hover {
+	color: #63b2f5;
+}
+.layui-table[lay-size=sm] td, .layui-table[lay-size=sm] th{
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

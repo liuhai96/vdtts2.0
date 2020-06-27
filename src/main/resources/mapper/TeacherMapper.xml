@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsjbc.vdtts.dao.mapper.TeacherMapper">
+<!--    查询所属驾校中的教练总数-->
+    <select id="findTeacherCount" parameterType="java.lang.Integer" resultType="int">
+        select count(*) from tb_teacher
+        <where>
+            <if test="tName!=null and tName!=''">
+                and t_name like concat('%',#{tName},'%')
+            </if>
+            and t_school_id = #{tSchoolId}
+        </where>
+
+    </select>
+
+<!--    连表查询所属驾校的信息-->
+    <select id="findTeacherList" resultType="com.lsjbc.vdtts.entity.Teacher">
+        select ter.*,acc.a_account account from tb_teacher ter left join tb_account acc on ter.t_account_id = acc.a_id
+        <where>
+            <if test="tName!=null and tName!=''">
+                and t_name like concat('%',#{tName},'%')
+            </if>
+            and t_school_id = #{tSchoolId} limit ${start},#{pageSize}
+        </where>
+
+    </select>
+    
+    <select id="findAccount" parameterType="com.lsjbc.vdtts.entity.Account" resultType="com.lsjbc.vdtts.entity.Teacher">
+        select a.*,b.s_name from tb_school b,(select * from tb_teacher where t_account_id =
+        #{e.aId}) a where b.s_id = a.t_school_id
+    </select><!--   李浪换 select * from tb_teacher where t_account_id = #{e.aId}-->
+    <!--    连表查询结束-->
+
+
+    <select id="findTeacherList2" parameterType="java.lang.Integer" resultType="com.lsjbc.vdtts.entity.Teacher">
+        select t.*,s.s_name from tb_teacher t left join tb_school s on s.s_id = t.t_school_id where t.t_school_id = #{tSchoolId}  limit ${start},#{pageSize}
+    </select>
+
+<!--    添加教练-->
+    <insert id="addTeacher" parameterType="com.lsjbc.vdtts.entity.Teacher">
+    insert into tb_teacher(t_account_id, t_school_id, t_sfz, t_name, t_sex, t_birthday, t_phone,t_license_time)  values
+    (#{tAccountId},#{tSchoolId},#{tSfz},#{tName},#{tSex},#{tBirthday},#{tPhone},#{tLicenseTime})
+    </insert>
+
+<!--    查询教练的账号id-->
+    <select id="findAccountId" parameterType="int" resultType="com.lsjbc.vdtts.entity.Teacher">
+        select * from tb_teacher where t_id = #{tId}
+    </select>
+<!--    删除教练-->
+    <delete id="deleteTeacher" parameterType="int">
+        delete from tb_teacher where t_id = #{tId}
+    </delete>
+
+<!--    修改教练基本信息-->
+    <update id="updateTeacherInfo" parameterType="com.lsjbc.vdtts.entity.Teacher">
+        update tb_teacher set t_phone = #{tPhone},t_limit=#{tLimit} where t_id = #{tId}
+    </update>
+
+<!--    查询教练-->
+    <select id="findTeacher" parameterType="int" resultType="com.lsjbc.vdtts.entity.Teacher">
+        select * from tb_teacher where t_school_id = #{tSchoolId}
+    </select>
+
+<!--    修改是否允许学员报名-->
+    <update id="updateTeacherApplyState" parameterType="int">
+        update tb_teacher
+        <set>
+            <if test="tTeach=='true'">
+              t_teach = 'false'
+            </if>
+            <if test="tTeach=='false'">
+                t_teach = 'true'
+            </if>
+        </set>
+        where t_id = #{tId}
+    </update>
+
+    <update id="updateTeacherAccountLockState" parameterType="int">
+        update tb_teacher
+        <set>
+            <if test="tLock =='true'">
+                t_lock = 'false'
+            </if>
+            <if test="tLock=='false'">
+                t_lock = 'true'
+            </if>
+        </set>
+         where t_id = #{tId}
+    </update>
+
+
+    <!--    陈竑霖-->
+    <!--    教练表-->
+    <select id="teacherlist" resultType="com.lsjbc.vdtts.entity.Teacher">
+        select tea.*,sch.s_name schoolName from tb_teacher tea,tb_school sch where tea.t_school_id=sch.s_id
+        <if test="e.tName!=null and e.tName!=''"> and tea.t_name like concat('%',#{e.tName},'%')</if>
+        <if test="e.tLock!=null and e.tLock!=''"> and tea.t_lock = #{e.tLock}</if>
+        <if test="e.tTeach!=null and e.tTeach!=''"> and tea.t_teach = #{e.tTeach}</if>
+        limit ${start},#{pageSize}
+    </select>
+    <!--分页-->
+    <select id="teacherlistcount"  resultType="int" parameterType="com.lsjbc.vdtts.entity.Teacher" >
+        select count(t_id) from tb_teacher
+        <where>
+            <if test="e.tName!=null and e.tName!=''"> and t_name like concat('%',#{e.tName},'%')</if>
+            <if test="e.tLock!=null and e.tLock!=''"> and t_lock = #{e.tLock}</if>
+            <if test="e.tTeach!=null and e.tTeach!=''"> and t_teach = #{e.tTeach}</if>
+        </where>
+    </select>
+    <select id="fteacher" resultType="com.lsjbc.vdtts.entity.Teacher">
+         select t_school_id from tb_teacher where t_id= #{tTeacherId}
+    </select>
+
+    <!--李浪写 通用修改-->
+    <update id="teacherUpdate" parameterType="com.lsjbc.vdtts.entity.Teacher">
+        update tb_teacher set
+        <if test="e.tSchoolId != null and e.tSchoolId != ''">t_school_id = #{e.tSchoolId},</if>
+        <if test="e.tSfz != null and e.tSfz != ''">t_sfz = #{e.tSfz},</if>
+        <if test="e.tPhone != null and e.tPhone != ''"> t_phone = #{e.tPhone},</if>
+        <if test="e.tPic != null and e.tPic != ''">t_pic = #{e.tPic}</if>
+         where 1 = 1
+        <if test="e.tId != null and e.tId != ''"> and t_id = #{e.tId}</if>
+        <if test="e.tAccountId != null and e.tAccountId != ''"> and t_account_id = #{e.tAccountId}</if>
+    </update>
+
+    <!--  周永哲，教练信息初始化-->
+    <select id="selectAllInfo" resultType="com.lsjbc.vdtts.entity.Teacher"  parameterType="com.lsjbc.vdtts.entity.Teacher">
+        select t.*,s.s_name school_name, a.a_account a_account from tb_teacher t
+        left join tb_school s on t.t_school_id = s.s_id
+        left join tb_account a on t.t_account_id = a.a_id
+        <where>
+            <if test="teacher.tName!=null and teacher.tName!=''">
+                and t.t_name like CONCAT('%', #{teacher.tName} ,'%')
+            </if>
+        </where>
+        limit #{page},#{limit}
+    </select>
+
+    <!--  周永哲，统计教练信息条数-->
+    <select id="selectTeacherCount" resultType="int" parameterType="com.lsjbc.vdtts.entity.Teacher">
+        select count(*) from tb_teacher
+        <where>
+            <if test="teacher.tName!=null and teacher.tName!=''">
+                and t_name like CONCAT('%', #{teacher.tName} ,'%')
+            </if>
+        </where>
+    </select>
+</mapper>

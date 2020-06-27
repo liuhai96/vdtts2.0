@@ -1,0 +1,13 @@
+所有用@RestController修饰的类全部存入这个目录
+所有通过Ajax访问的Controller类全部存入这个目录
+
+在Api类上加上@CrossOrigin可以解决跨域问题
+
+用@Controller修饰的Controller层放在controller目录中
+用@Controller修饰的Controller层放在controller目录中
+用@Controller修饰的Controller层放在controller目录中
+
+
+返回界面的Controller层放在controller目录中
+返回界面的Controller层放在controller目录中
+返回界面的Controller层放在controller目录中

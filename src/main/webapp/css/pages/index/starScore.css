@@ -1,0 +1,92 @@
+.clearfix::after {
+	height: 0px;
+	overflow: hidden;
+	clear: both;
+	display: block;
+	content: "";
+}
+.content {
+
+}
+.title {
+	background: rgb(223, 223, 223);
+	padding: 10px;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+.block {
+	
+}
+.block .star_score {
+	display: inline-block;
+}
+
+.star_list {
+	margin: 50px;
+	height: 21px;
+	line-height: 21px;
+}
+
+.block p {
+	top: -5px;
+	display: inline-block;
+	position: relative;
+}
+
+.block .attitude {
+	line-height: 21px;
+	padding-left: 20px;
+}
+.block p span {
+	color: rgb(204, 0, 0);
+	font-size: 14px;
+}
+.star_score {
+	background: url("../../../../../../../../../image/pages/index/stark2.png");
+	width: 150px;
+	height: 21px;
+	position: relative;
+}
+.star_score a {
+	left: 0px;
+	height: 21px;
+	text-indent: -999em;
+	display: block;
+	position: absolute;
+}
+.star_score a:hover {
+	background: url("../../../../../../../../../image/pages/index/stark2.png");
+	left: 0px;
+}
+.star_score a.clibg {
+	background: url("../../../../../../../../../image/pages/index/stark2.png");
+	left: 0px;
+}
+.show_number {
+
+}
+.show_number li {
+	padding: 10px;
+	border: 1px solid rgb(204, 204, 204);
+	border-image: none;
+	width: 240px;
+	margin-right: 5px;
+	margin-bottom: 20px;
+}
+.atar_Show {
+	background: url("../../../../../../../../../image/pages/index/stark2.png");
+	width: 150px;
+	height: 21px;
+	float: left;
+	position: relative;
+}
+.atar_Show p {
+	background: url("../../../../../../../../../image/pages/index/stars2.png");
+	left: 0px;
+	width: 134px;
+	height: 21px;
+}
+.show_number li span {
+	line-height: 21px;
+	display: inline-block;
+}

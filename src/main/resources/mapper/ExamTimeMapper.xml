@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsjbc.vdtts.dao.mapper.ExamTimeMapper">
+<!--    刘海-&#45;&#45;查询学员学时记录-->
+    <select id="findStudentExamNotes" parameterType="int" resultType="com.lsjbc.vdtts.entity.ExamTime">
+        select * from tb_exam_time where  et_student_id = #{etStudentId} limit #{start},#{pageSize}
+    </select>
+
+    <select id="findStudentExamNotesCount" parameterType="int" resultType="int">
+        select count(*) from tb_exam_time where et_student_id = #{etStudentId}
+    </select>
+</mapper>

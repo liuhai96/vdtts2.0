@@ -1,0 +1,110 @@
+.layui-tab-title li{display: block;}
+.main .layui-tab .layui-tab-title{
+    border-style: none;
+}
+.main .layui-tab .layui-tab-title li{
+    border-style: none;
+    background: #e2eaf2;
+    margin: 5px 0;
+    line-height: 45px;
+}
+/*页面单独样式*/
+.main{
+    width: 1100px;margin: 10px  auto;overflow: hidden;position: relative;
+}
+.del-1{
+    overflow: hidden;
+}
+.del-1 .del-lun{
+    float: left;
+}
+.del-lun .lun-img{
+    width: 700px;height: 460px;
+}
+.del-1 .del-schinf{
+    float: left;width: 390px;
+}
+.del-1 .del-inf{
+    padding: 10px;background: #fff;
+}
+.del-p{
+    background: #274472;
+    color: #fff;
+    font-size: 20px;
+    padding: 5px 50px 5px 10px;
+    min-height: 50px;
+    vertical-align: middle;
+    position: relative;
+}
+.del-p span{
+    vertical-align: -webkit-baseline-middle;
+}
+.del-p img{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+.del-inf p{
+    line-height: 20px;
+}
+.del-inf .inf-p1{
+    margin-bottom: 10px;
+}
+.del-inf .inf-p-loc{
+    width: 12px;padding: 10px 5px;
+}
+.del-inf .del-inf-star{
+    width: 18px;margin: 10px 5px;
+}
+.del-inf .del-inf-num{
+    margin-left: 10px;color: #4174c5;
+}
+.del-span-color{
+    color: #d97264;
+}
+.blsit-list1 li{
+    overflow: hidden;display: block;
+}
+.blsit-list1 li hr{
+    margin: 10px;
+}
+.blsit-list1 .del-lis6{
+    background: #f8f9fa;
+}
+.del-inf-but b{
+    float: left;
+}
+.del-inf-but .inf-but-box{
+    display: inline-block;
+}
+.del-sch-view{
+    display: inline-block;margin: 10px;background: #f7faff;
+}
+.bat-but{
+    padding: 8px 10px;border: 1px solid #c2c2c2;background: #f9f9f9;border-radius: 3px;color: #4174c5;margin: 0px 5px 8px 0;
+}
+.p-title{
+    color: #5a86cd;font-size: 18px;border-left: 5px solid #5a86cd;margin-left: 10px;margin-top: 10px;padding-left: 10px;
+}
+.p-cont{
+    text-indent: 2em;line-height: 25px;padding: 10px;
+}
+.img-title{
+    line-height: 40px;font-size: 15px;font-weight: bold;color: #5a86cd;margin-left: 15px;
+}
+.coach-title-img img{
+    width: 54px;height: 54px;border-radius: 54px;overflow: hidden;
+}
+.map-table{
+    border: 1px solid #fff;font-size: 12px;
+}
+.map-table td, .map-table th{
+    padding: 10px 10px;font-size: 12px;background: #fff;
+    border-style:none ;
+}
+.map-table th{
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    color: #5a86cd;
+}

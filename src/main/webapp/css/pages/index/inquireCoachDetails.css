@@ -1,0 +1,135 @@
+.layui-tab-title li{display: block;}
+.main .layui-tab .layui-tab-title{
+    border-style: none;
+}
+.main .layui-tab .layui-tab-title li{
+    border-style: none;
+    background: #e2eaf2;
+    margin: 5px 0;
+    line-height: 45px;
+}
+.main{
+    width: 1100px;margin: 10px  auto;overflow: hidden;
+}
+.main .inq-coach{
+    overflow: hidden;padding: 20px;background-color: #fff;box-shadow: 0px 0px 4px #888888;
+    border: 1px solid #eee;border-top-style: none;
+}
+
+.main .inq-coach>img{
+    float: left;width: 260px;height: 350px;
+}
+.main .inq-coach .coach-inf{
+    float: left;padding: 20px;position: relative;width: 71%;
+}
+.main .inq-coach .coach-inf p{
+    line-height: 35px;font-size: 14px;
+}
+.main .inq-coach .coach-inf>p:first-child{
+    font-size: 24px;
+}
+.main .inq-coach .coach-inf hr{
+    margin-top: 25px;
+}
+.coach-inf p button{
+    padding: 4px 10px;background-color: #fff;border: 1px solid #ccc;font-size: 12px;border-radius: 2px;
+}
+.coach-inf p button span{
+    color: red;
+}
+.coach-inf .coach-evaluate-num{
+    position: absolute;right: 20px;bottom: 88px;border-bottom: 1px solid #ddd;
+}
+.coach-inf .coach-evaluate-num .evaluate-num{
+    display: inline-block;text-align: right;
+    padding: 0 15px;
+    margin: 4px 0;
+
+}
+.coach-inf .coach-evaluate-num .evaluate-num p{
+    line-height: 20px;font-size: 12px;
+}
+.coach-inf .coach-evaluate-num .evaluate-num p span{
+    color: red;
+}
+.coach-stu-evaluate{
+    margin-top: 25px;padding: 20px;background-color: #fff; border: 1px solid #eee; border-top-style: none;
+}
+.coach-stu-evaluate>p{
+    color: #5a86cd;font-size: 18px;border-left: 5px solid #5a86cd;padding-left: 10px;
+}
+.coach-stu-evaluate .evaluate-all{
+    background: #f9f9f9;line-height: 30px;
+}
+.coach-stu-evaluate .evaluate-all>span{
+    border-right: 1px solid #eee;padding: 0 10px;
+}
+.coach-stu-evaluate .evaluate-all>span span{
+    color: red;
+}
+.coach-stu-evaluate .evaluate-all select{
+    float: right;margin: 5px 10px 0 0;
+}
+.coach-stu-evaluate .stu-evaluate-inf{
+    overflow: hidden;
+}
+.stu-evaluate-inf .stu-user, .stu-evaluate-inf .eva-con{
+    float: left;padding: 10px;
+}
+.stu-evaluate-inf .stu-user img{
+    margin: 10px 0;
+}
+.stu-evaluate-inf .eva-con p{
+    line-height: 30px;
+}
+.stu-evaluate-inf .eva-con p img{
+    width: 12px;
+}
+.stu-evaluate-inf .eva-con p span{
+    margin-left: 10px;
+}
+.stu-evaluate-inf .eva-con p button{
+    padding: 4px 5px;border: 1px solid #e2eaf2;background-color: #e2eaf2;margin-right: 5px;color: #274472;
+}
+.stu-evaluate-inf hr{
+    margin-bottom: 0;
+}
+
+.coach-stu-evaluate ul{
+    background-color: #f9f9f9;overflow: hidden;
+}
+.coach-stu-evaluate  .statistics .active{
+    background: #eeeeee;
+}
+.coach-stu-evaluate ul li{
+    float: left;display: block;padding: 8px 20px;width: auto;border-right: 1px solid#eeeeee;cursor: pointer;
+}
+.coach-stu-evaluate ul li span{
+    color: #d3311a;
+}
+.coach-stu-evaluate ul .statistics-sel{
+    float: right;margin-top: 6px;margin-right: 5px;
+}
+.coach-stu-evaluate ul .statistics-sel select{
+    min-width: 80px;
+    border-color: #ccc;
+}
+
+ .evaluate-coach{
+    padding: 15px 0;border-bottom: 1px solid #eeeeee;overflow: hidden;
+}
+.evaluate-coach-title{
+    width: 40%;float: left;
+}
+.coach-title-img img{
+    width: 54px;height: 54px;border-radius: 54px;overflow: hidden;
+}
+ .coach-title{
+    display: inline-block;position: relative;top: -35px;margin-left: 40px;
+}
+.evaluate-inf{
+    width: 60%;float: left;
+}
+.inf-content{
+    padding: 8px 0;
+}

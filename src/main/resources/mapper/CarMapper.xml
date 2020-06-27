@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsjbc.vdtts.dao.mapper.CarMapper">
+
+<!--    刘海-->
+    <select id="findCarCount" parameterType="int" resultType="int">
+        select count(*) from tb_car
+        <where>
+            <if test="cNumber!=null and cNumber!=''">
+                and c_number like concat('%',#{cNumber},'%')
+            </if>
+            and c_school_id = #{cSchoolId}
+        </where>
+
+    </select>
+
+    <select id="findCarManageList" parameterType="int" resultType="com.lsjbc.vdtts.entity.Car">
+        select c.*,t.t_name from tb_car c left join  tb_teacher t on c.c_teacher_id = t.t_id
+        <where>
+            <if test="cNumber!=null and cNumber!=''">
+                and c_number like concat('%',#{cNumber},'%')
+            </if>
+            and c_school_id = #{cSchoolId}  limit ${start},#{pageSize}
+        </where>
+    </select>
+
+    <update id="updateCarInfo" parameterType="com.lsjbc.vdtts.entity.Car">
+        update tb_car set c_teacher_id = #{cTeacherId} where c_id = #{cId}
+    </update>
+
+    <update id="updateCarInfomatian" parameterType="int">
+        update tb_car set c_teacher_id = null where c_school_id = #{cSchoolId} and c_id = #{cId};
+    </update>
+
+    <delete id="deleteCar" parameterType="int">
+        delete from tb_car where c_id = #{cId}
+    </delete>
+
+    <insert id="addCar" parameterType="com.lsjbc.vdtts.entity.Car">
+        insert into tb_car(c_school_id, c_logo, c_model, c_color, c_number) values (#{cSchoolId},#{cLogo},#{cModel},#{cColor},#{cNumber})
+    </insert>
+<!--    刘海&#45;&#45;结束-->
+
+    <!--    陈竑霖-->
+    <!--    车辆表-->
+    <select id="finecarlist" resultType="com.lsjbc.vdtts.entity.Car">
+        select car.*,sch.s_name schoolName from tb_car car,tb_school sch
+         where car.c_school_id=sch.s_id
+        <if test="e.cNumber!=null and e.cNumber!=''"> and car.c_number like concat('%',#{e.cNumber},'%')</if>
+        limit ${start},#{pageSize}
+    </select>
+    <!--分页-->
+    <select id="carlistcount"  resultType="int" parameterType="com.lsjbc.vdtts.entity.Car" >
+    select count(c_id) from tb_car
+    <where>
+      <if test="e.cNumber!=null and e.cNumber!=''"> and c_number like concat('%',#{e.cNumber},'%')</if>
+    </where>
+    </select>
+
+    <!--  周永哲，教练车信息初始化-->
+    <select id="selectAllInfo" resultType="com.lsjbc.vdtts.entity.Car"  parameterType="com.lsjbc.vdtts.entity.Car">
+        select c.*,s.s_name school_name,t.t_name t_name from tb_car c
+        left join tb_school s on c.c_school_id = s.s_id
+        left join tb_teacher t on c.c_teacher_id = t.t_id
+        <where>
+            <if test="car.cLogo!=null and car.cLogo!=''">
+                and c.c_logo like CONCAT('%', #{car.cLogo} ,'%')
+            </if>
+        </where>
+        limit #{page},#{limit}
+    </select>
+
+    <!--  周永哲，统计教练车信息条数-->
+    <select id="selectCarCount" resultType="int" parameterType="com.lsjbc.vdtts.entity.Car">
+        select count(*) from tb_car
+        <where>
+            <if test="car.cLogo!=null and car.cLogo!=''">
+                and c_logo like CONCAT('%', #{car.cLogo} ,'%')
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

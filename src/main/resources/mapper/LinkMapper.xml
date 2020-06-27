@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsjbc.vdtts.dao.mapper.LinkMapper">
+    <select id="getBlogroll" resultType="com.lsjbc.vdtts.entity.Link">
+        select * from tb_link
+        <where> 1 = 1
+            <if test="e.lkId != null and e.lkId != ''"> and lk_id = #{e.lkId}</if>
+        </where>
+        limit ${start},${size}
+    </select>
+    <select id="getCount" resultType="java.lang.Integer">
+        select count(*) from tb_link
+        <where> 1 = 1
+            <if test="e.lkId != null and e.lkId != ''"> and lk_id = #{e.lkId}</if>
+        </where>
+    </select>
+    <insert id="addLink" parameterType="com.lsjbc.vdtts.entity.Link" useGeneratedKeys="true" keyProperty="lkId">
+        insert into tb_link (lk_name, lk_url, lk_pic) values (#{e.lkName},#{e.lkUrl},#{e.lkPic})
+    </insert><!--增加链接-->
+    <update id="updateLink" parameterType="com.lsjbc.vdtts.entity.Link">
+        update tb_link set lk_id = #{e.lkId}
+        <if test="e.lkName != null and e.lkName != ''">,lk_name = #{e.lkName}</if>
+        <if test="e.lkUrl != null and e.lkUrl != ''">,lk_url_id = #{e.lkUrl}</if>
+        <if test="e.lkPic != null and e.lkPic != ''">,lk_pic = #{e.lkPic}</if>
+        where lk_id = #{e.lkId}
+    </update><!--更改信息-->
+    <delete id="deleteLink" parameterType="com.lsjbc.vdtts.entity.Link">
+        delete from tb_link where lk_id = #{e.lkId}
+    </delete><!--删除-->
+</mapper>

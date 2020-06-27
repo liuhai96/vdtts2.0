@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsjbc.vdtts.dao.mapper.FrontMenuMapper">
+    <select id="selectMenuList" parameterType="int" resultType="com.lsjbc.vdtts.entity.FrontMenu">
+       select fm.* from tb_front_menu fm
+       left JOIN tb_identity_menu im ON fm.fr_menu_id = im.im_menu_id
+       left join tb_identity ident on ident.identity_id = im.im_identity_id where ident.identity_id=#{identityId}
+    </select>
+</mapper>

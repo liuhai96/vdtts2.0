@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsjbc.vdtts.dao.mapper.AccountMapper">
+    <select id="findAccount" parameterType="java.lang.String" resultType="com.lsjbc.vdtts.entity.Account">
+        select * from tb_account where a_account = #{aAccount}
+    </select>
+    <insert id="addAccount" useGeneratedKeys="true" parameterType="com.lsjbc.vdtts.entity.Account" keyProperty="aId">
+        insert into tb_account(a_account, a_password,a_type) values (#{aAccount},#{aPassword},#{aType})
+    </insert>
+    <select id="UserLogin" parameterType="com.lsjbc.vdtts.entity.Account" resultType="com.lsjbc.vdtts.entity.Account">
+        select * from tb_account where a_account = #{aAccount} and a_password = #{aPassword}
+    </select><!-- 登录——李浪写 -->
+<!--    删除账号-->
+    <delete id="deleteAccount" parameterType="int">
+        delete from tb_account where a_id = #{aId}
+    </delete>
+    <select id="selectAccount" resultType="com.lsjbc.vdtts.entity.Account">
+        select * from tb_account
+        <where> 1 = 1
+            <if test="e.aId != null and e.aId != ''"> and a_id = #{e.aId}</if>
+            <if test="e.aAccount != null and e.aAccount != ''"> a_account = #{e.aAccount} </if>
+            <if test="e.aPassword != null and e.aPassword != ''"> and a_password = #{e.aPassword}</if>
+            <if test="e.aType != null and e.aType != ''"> and a_type = #{e.aType}</if>
+        </where>
+    </select><!-- 通用查找——李浪写 -->
+    <update id="updateAccount" parameterType="com.lsjbc.vdtts.entity.Account">
+        update tb_account set
+        <if test="e.aPassword != null and e.aPassword != ''"> a_password = #{e.aPassword}</if>
+         <where> 1 = 1
+             <if test="e.aId != null and e.aId != ''"> and a_id = #{e.aId}</if>
+         </where>
+    </update>
+
+<!--   刘海 修改驾校密码-->
+    <select id="findSchoolPwd" parameterType="int" resultType="int">
+        select a_password from  tb_account where a_id = {aId}
+    </select>
+    <update id="updateSchoolPwd">
+        update tb_account set a_password = #{aPassword} where a_id = #{aId}
+    </update>
+    <!--    周永哲  管理端登录-->
+    <select id="adminLogin" parameterType="com.lsjbc.vdtts.entity.AdminAccount" resultType="com.lsjbc.vdtts.entity.AdminAccount">
+      SELECT tb_admin_account.*, tb_role.r_id roleId FROM tb_admin_account, tb_admin_role,tb_role
+        WHERE  tb_admin_account.ac_id = tb_admin_role.ar_admin_id AND tb_admin_role.ar_role_id = tb_role.r_id
+	    AND tb_admin_account.ac_account=#{acAccount} AND tb_admin_account.ac_password=#{acPassword};
+    </select>
+    <!--    周永哲  动态菜单查询-->
+    <select id="adminList" parameterType="int" resultType="com.lsjbc.vdtts.entity.Menuitem">
+      SELECT * FROM tb_role_menuitem,tb_menuitem WHERE tb_role_menuitem.rm_role_id=#{roleId}
+      AND tb_menuitem.m_id=tb_role_menuitem.rm_menuitem_id;
+    </select>
+
+    <update id="updateAdminAccount" parameterType="com.lsjbc.vdtts.entity.AdminAccount">
+        update tb_admin_account set ac_password = #{acPassword} where ac_id = #{acId}
+    </update>
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsjbc.vdtts.dao.mapper.ExamQuestionMapper">
+    <insert id="insertExamQuestion" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="eqId">
+        insert into tb_exam_question (eq_question, eq_level,eq_pic)
+        values
+        <foreach collection="examQuestionList" item="exam" separator=",">
+            (#{exam.eqQuestion},#{exam.eqLevel},#{exam.eqPic})
+        </foreach>
+    </insert>
+</mapper>

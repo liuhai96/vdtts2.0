@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsjbc.vdtts.dao.mapper.ExamSimulateRecordMapper">
+    <select id="getExamSimulate" resultType="com.lsjbc.vdtts.entity.ExamSimulateRecord">
+        select * from tb_exam_simulate_record
+        <where> 1 = 1
+            <if test="esrId != null and esrId != ''"> and esr_id = #{esrId}</if>
+            <if test="esrStudentId != null and esrStudentId != ''"> and esr_student_id = #{esrStudentId}</if>
+            <if test="esrLevel != null and esrLevel != ''"> and esr_level = #{esrLevel} </if>
+        </where>
+    </select>
+</mapper>

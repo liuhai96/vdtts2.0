@@ -1,0 +1,108 @@
+.layui-tab-title li {
+	display: block;
+}
+
+.main .layui-tab .layui-tab-title {
+	border-style: none;
+}
+
+.main .layui-tab .layui-tab-title .layui-this {
+	background: url(../../../../image/pages/index/list_bg.png) no-repeat;
+	background-size: cover;
+	color: #fff;
+}
+
+.main .layui-tab .layui-tab-title {
+	float: left;
+	width: 150px;
+	height: 310px;
+	top: 45px;
+}
+
+.main .layui-tab .layui-tab-title li {
+	border-style: none;
+	background: #e2eaf2;
+	margin: 5px 0;
+	line-height: 45px;
+}
+
+.layui-form-select .layui-input {
+	margin: 3px 10px 0 0;
+	height: 32px;
+	line-height: 32px;
+}
+
+.layui-tab-content {
+	padding: 0;
+}
+
+
+/*单独样式*/
+
+.main {
+	width: 1100px;
+	margin: 10px auto;
+	overflow: hidden;
+}
+
+.pub-title {
+	float: left;
+	margin-left: -150px;
+	line-height: 45px;
+	padding: 0 27px;
+	background: #274472;
+	color: #fff;
+}
+
+.pub-title img {
+	margin-right: 10px;
+}
+
+.pub-content {
+	margin-left: 165px;
+}
+
+.pub-content .layui-tab-item blockquote {
+	background: #d8e1f1;
+}
+
+.pub-content .layui-tab-item blockquote label {
+	width: 40px;
+}
+
+.pub-content .pub-select-box {
+	margin-right: 20px;
+}
+
+.pub-content .pub-inp-box {
+	width: 390px;
+}
+
+.pub-sel {
+	margin: 4px 10px 0 0;
+	height: 30px;
+	line-height: 30px;
+}
+
+.pub-inp {
+	margin: 3px 10px 0 0;
+	height: 32px;
+	line-height: 32px;
+}
+
+.pub-but {
+	float: right;
+	margin: 4px 10px 0 0;
+	height: 30px;
+	line-height: 30px;
+	background: #40bff5;
+}
+
+.pub-but img {
+	margin-right: 10px;
+}
+
+.table-style-order {
+	background: url(../../../../../../../../../image/pages/index/circle.png) no-repeat;
+	padding: 0px 15px 1px 6px;
+}

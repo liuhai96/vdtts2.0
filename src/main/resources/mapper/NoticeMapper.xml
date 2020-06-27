@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsjbc.vdtts.dao.mapper.NoticeMapper">
+    <select id="getNoticeOrLaw" resultType="com.lsjbc.vdtts.entity.Notice">
+        select * from tb_notice <where> 1=1
+            <if test="e.nTime != null and e.nTime != '' and currentTime == null"> and n_time = #{e.nTime}</if>
+            <if test="e.nTime != null and e.nTime != '' and currentTime != null and currentTime != ''">
+             and n_time between #{e.nTime} and #{currentTime}</if>
+            <if test="e.nContent != null and e.nContent != ''"> and n_content = #{e.nContent}</if>
+            <if test="e.nType != null and e.nType != ''"> and n_type = #{e.nType}</if>
+        </where>
+    </select>
+
+<!--    陈竑霖-->
+    <!--表单-->
+    <select id="noticeList" resultType="com.lsjbc.vdtts.entity.Notice">
+        select n_id,n_name,n_time,n_content from tb_notice where n_type = 'notice'
+        <if test="e.nTime!=null and e.nTime!=''"> and n_time like concat('%',#{e.nTime},'%')</if>
+        <if test="e.nName!=null and e.nName!=''"> and n_name like concat('%',#{e.nName},'%')</if>
+        limit #{start},#{pageSize}
+    </select>
+    <!--分页-->
+    <select id="noticeListCount" resultType="int" parameterType="com.lsjbc.vdtts.entity.Notice">
+        select count(n_id) from tb_notice where n_type = 'notice'
+<!--        <where>-->
+            <if test="e.nTime!=null and e.nTime!=''"> and n_time like concat('%',#{e.nTime},'%')</if>
+            <if test="e.nName!=null and e.nName!=''"> and n_name like concat('%',#{e.nName},'%')</if>
+
+<!--        </where>-->
+    </select>
+<!--    删除公告-->
+    <delete id="deletenotice" parameterType="int" >
+        delete from tb_notice where n_id = #{nId}
+    </delete>
+<!--新增公告-->
+    <insert id="addnotice" parameterType="com.lsjbc.vdtts.entity.Notice"  useGeneratedKeys="true" keyProperty="nId">
+        insert into tb_notice(n_name, n_time,n_type,n_content) values (#{nName},#{nTime},#{nType},#{nContent})
+    </insert>
+</mapper>
